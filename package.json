@@ -1,0 +1,19 @@
+{
+  "name": "sealedcircle-ui",
+  "version": "1.0.0",
+  "description": "SealedCircle event booking UI - Node.js + Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1",
+    "qrcode": "^1.5.4"
+  }
+}

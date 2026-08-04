@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SealedCircle</title>
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- Header (just the logo, links to Home) -->
+    <header class="header">
+      <a href="/" data-route="home" class="brand">
+        <!-- Apni logo.png yahin daalo: public/assets/logo.png
+           Chahe original file bada ho, CSS (.brand-logo-img) usko
+           header ki height ke hisaab se apne aap chhota kar dega. -->
+        <img class="brand-logo-img" src="assets/loo.png" alt="SealedCircle" />
+
+      </a>
+    </header>
+
+    <!-- ================= PAGE CONTENT (all pages live here, JS just shows/hides) ================= -->
+    <main class="content">
+
+      <!-- ---------- HOME ---------- -->
+      <section class="page-section" data-page="home">
+        <div class="hero-card">
+          <!-- Replace this src with your own event banner image -->
+          <img src="assets/event-banner.png" alt="Depth Pool Party banner" />
+        </div>
+
+        <div class="hero-info">
+          <h1 class="event-title">Depth Pool Party '26</h1>
+          <p class="event-sub">Secret Poolside, Delhi NCR</p>
+
+          <p class="event-desc">
+            DEPTH is an invite-only poolside experience where Delhi's most ambitious designers, creators, founders, and
+            creative minds come together to connect, collaborate, and build meaningful relationships.
+
+            Every guest is carefully curated to ensure a high-quality room filled with inspiring conversations, valuable
+            networking, live music, and an exceptional poolside atmosphere. Every detail is designed to create an
+            experience that goes beyond a typical networking event.
+            <br /><br />
+            Guest list is strictly limited. Apply for an invitation through the link below to request your access.
+          </p>
+
+          <div class="cta-fixed">
+            <a href="/details" data-route="details" class="btn">APPLY FOR ACCESS</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- TICKETS ---------- -->
+      <section class="page-section" data-page="tickets">
+        <h1 class="section-heading">Select Your Experience</h1>
+
+        <div class="pass-grid">
+
+          <!-- Solo Pass -->
+          <div class="pass-card">
+
+            <div class="pass-name">Explorer Pass</div>
+            <div class="pass-price">₹2,499<span class="taxes">(Incl. Taxes)</span></div>
+            <ul class="pass-features">
+              <li><span class="check">✓</span> Entry for 1 Guest</li>
+              <li><span class="check">✓</span> Pool Access </li>
+              <li><span class="check">✓</span> Live DJ Experience</li>
+              <li><span class="check">✓</span> Secret Guest Appearance</li>
+              <li><span class="check">✓</span> DEPTH Surprise Experience Kit</li>
+            </ul>
+            <button type="button" class="btn access-btn" data-pass="Solo Pass" data-price="2499">Reserve Now</button>
+          </div>
+
+          <!-- 2pax Pass -->
+          <div class="pass-card">
+
+            <div class="pass-name">Connect Pass (2 Guests)</div>
+            <div class="pass-price">₹3,999<span class="taxes">(Incl. Taxes)</span></div>
+            <ul class="pass-features">
+              <li><span class="check">✓</span> Entry for 2 Guests</li>
+              <li><span class="check">✓</span> Pool Access</li>
+              <li><span class="check">✓</span> Live DJ Experience</li>
+              <li><span class="check">✓</span> Secret Guest Appearance</li>
+              <li><span class="check">✓</span> DEPTH Surprise Experience Kits(2)
+              </li>
+            </ul>
+            <button type="button" class="btn access-btn" data-pass="2pax Pass" data-price="3999">Reserve Now</button>
+          </div>
+
+          <!-- Standing Table -->
+          <div class="pass-card">
+
+            <div class="pass-name">Circle Table (4 Guests)</div>
+            <div class="pass-price">₹21,999 <span class="taxes">(Incl. Taxes)</span></div>
+            <ul class="pass-features">
+              <li><span class="check">✓</span> Entry for 4 Guests</li>
+              <li><span class="check">✓</span> Reserved Standing Table</li>
+              <li><span class="check">✓</span> 5 Complimentary Beers</li>
+              <li><span class="check">✓</span> ₹5,000 Food & Beverage Credit</li>
+              <li><span class="check">✓</span> Priority Entry</li>
+              <li><span class="check">✓</span> Dedicated Table Service</li>
+              <li><span class="check">✓</span> Secret Guest Appearance</li>
+              <li><span class="check">✓</span> DEPTH Surprise Experience Kits (4)
+              </li>
+
+
+            </ul>
+            <button type="button" class="btn access-btn" data-pass="Standing Table ( 4 Guests )"
+              data-price="21999">Reserve Now</button>
+          </div>
+
+          <!-- VIP Table -->
+          <div class="pass-card">
+
+            <div class="pass-name">Elite Cabana (8 Guests)</div>
+            <div class="pass-price">₹54,999 <span class="taxes">(Incl. Taxes)</span></div>
+            <ul class="pass-features">
+              <li><span class="check">✓</span> Entry for 8 Guests</li>
+              <li><span class="check">✓</span> Premium Reserved Seating</li>
+              <li><span class="check">✓</span> 8 Complimentary Beers</li>
+              <li><span class="check">✓</span> 1 Premium Bottle</li>
+              <li><span class="check">✓</span> ₹10,000 Food & Beverage Credit</li>
+              <li><span class="check">✓</span> Dedicated Host</li>
+              <li><span class="check">✓</span> Fast Track Entry</li>
+              <li><span class="check">✓</span> Premium Brand Gifting</li>
+              <li><span class="check">✓</span> Secret Guest Appearance
+              </li>
+              <li><span class="check">✓</span> Exclusive DEPTH Surprise Experience Kit</li>
+              <li><span class="check">✓</span> Professional Group Photography</li>
+              <li><span class="check">✓</span> Premium Networking Access</li>
+            </ul>
+            <button type="button" class="btn access-btn" data-pass="VIP Cable/Table ( 8 Guests )"
+              data-price="54999">Reserve Now</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ---------- DETAILS FORM ---------- -->
+      <section class="page-section" data-page="details">
+        <div class="form-card">
+          <h1 class="form-title">Please fill up your details</h1>
+
+          <form id="detailsForm">
+            <div class="field">
+              <label for="fullName">Full Name <span class="req">*</span></label>
+              <input type="text" id="fullName" name="fullName" required />
+            </div>
+
+            <div class="field">
+              <label for="detailsEmail">Email <span class="req">*</span></label>
+              <input type="email" id="detailsEmail" name="email" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+
+            <hr class="divider" />
+
+            <div class="field field-grid-2">
+              <div>
+                <label for="age">Age <span class="req">*</span></label>
+                <input type="number" id="age" name="age" required />
+              </div>
+
+              <div>
+                <label for="gender">Gender <span class="req">*</span></label>
+                <select id="gender" name="gender" required>
+                  <option value="">Select</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                  <option value="nonbinary">Non-binary</option>
+                  <option value="prefer-not">Prefer not to say</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+  <label for="field">Designer / Creative Field <span class="req">*</span></label>
+
+  <select id="field" name="creativeField" required>
+    <option value="">Select your field</option>
+
+    <option value="Graphic Designer">Graphic Designer</option>
+    <option value="UI/UX Designer">UI/UX Designer</option>
+    <option value="Brand Designer">Brand Designer</option>
+    <option value="Motion Designer">Motion Designer</option>
+    <option value="3D Designer">3D Designer</option>
+    <option value="Illustrator / Artist">Illustrator / Artist</option>
+    <option value="Product Designer">Product Designer</option>
+    <option value="Creative Content Creator / Influencer">Creative Content Creator / Influencer</option>
+    <option value="Photographer / Videographer">Photographer / Videographer</option>
+    <option value="Video Editor">Video Editor</option>
+    <option value="Creative Director">Creative Director</option>
+    <option value="Entrepreneur / Founder">Entrepreneur / Founder</option>
+    <option value="Other Creative">Other Creative</option>
+  </select>
+</div>
+
+            <div class="field">
+              <label for="org">College / Studio / Company Name <span class="req">*</span></label>
+              <input type="text" id="org" name="collegeStudioCompanyName" required />
+            </div>
+
+            <div class="field">
+              <label for="insta">Instagram / LinkedIn Profile Link <span class="req">*</span></label>
+              <input type="url" id="insta" name="instagram" placeholder="HTTPS:/..."
+                pattern="https?:\/\/(www\.)?(instagram\.com|linkedin\.com)\/.*"
+                title="Enter a valid Instagram or LinkedIn profile URL" required />
+            </div>
+
+            <div class="field">
+              <label for="portfolio">Why do you want to attend DEPTH?</label>
+              <input type="text" id="portfolio" name="whyAttendDepth" />
+            </div>
+
+            <button type="submit" class="btn">Continue</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ---------- MY BOOKINGS ---------- -->
+      <section class="page-section" data-page="bookings">
+        <h1 class="section-heading">My Bookings</h1>
+        <p class="section-sub">Your purchased passes will show up here</p>
+
+        <div class="pass-card" style="text-align:center; padding:40px 24px;">
+          <div style="font-size:34px; margin-bottom:10px;">🎟️</div>
+          <p style="color:var(--text-muted); font-size:14.5px; margin-bottom:20px;">
+            No bookings yet. Once you log in and grab a pass, it'll appear here.
+          </p>
+          <a href="/tickets" data-route="tickets" class="btn">Get Your Pass</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ---------- Payment QR Modal ---------- -->
+    <div class="qr-overlay" id="qrOverlay">
+      <div class="qr-modal">
+        <button class="qr-close" id="qrClose" aria-label="Close">✕</button>
+
+        <p class="qr-pass-name" id="qrPassName">Solo Pass</p>
+        <p class="qr-amount" id="qrAmount">₹2999</p>
+
+        <div class="qr-code-box">
+          <img id="qrCanvas" alt="QR Code">
+        </div>
+
+        <p class="qr-upi">
+          Pay via UPI ID: <strong>9599471563@pthdfc</strong>
+        </p>
+
+        <p class="qr-instructions">
+  After completing your payment, please share the following on WhatsApp:<br><br>
+
+  • Payment Screenshot<br><br>
+
+  • Full Name<br><br>
+
+  • Email Address<br><br>
+
+  <strong>WhatsApp: +91 95994 71563</strong>
+</p>
+
+<div class="qr-note">
+  <p><strong>Important:</strong> Please fill out your application carefully, as every submission is reviewed by our team.</p>
+
+  <p>You'll receive your booking confirmation via Email or WhatsApp within 24 hours.</p>
+
+  <p>If your profile is not selected during the review process, your booking will not be confirmed, and <strong>100% of your payment will be refunded</strong> to your original payment method within 24 hours.</p>
+</div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
