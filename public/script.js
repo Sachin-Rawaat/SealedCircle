@@ -115,23 +115,27 @@ function initForms() {
     // =================
 
     try {
-      const res = await fetch("/api/details", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+     const res = await fetch("/api/details", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(payload),
+});
 
-      const data = await res.json();
+const responseText = await res.text();
 
-      console.log("API Response:", data);
+console.log("Status:", res.status);
+console.log("Response:", responseText);
 
-      if (data.ok) {
-        showRoute("tickets");
-      } else {
-        alert(data.message || "Could not save your details.");
-      }
+alert(
+  "Status: " +
+    res.status +
+    "\n\nResponse:\n" +
+    responseText
+);
+
+return;
     } catch (err) {
       console.error(err);
       alert("Something went wrong.");
