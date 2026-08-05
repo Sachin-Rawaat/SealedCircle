@@ -1,9 +1,10 @@
 // api/details.js
+
 const connectDB = require("../lib/db");
 const Details = require("../models/Signup");
 
 module.exports = async (req, res) => {
-  // Only allow POST requests
+  // Allow only POST
   if (req.method !== "POST") {
     res.setHeader("Allow", ["POST"]);
     return res.status(405).json({
@@ -19,13 +20,23 @@ module.exports = async (req, res) => {
     age,
     gender,
     creativeField,
-    org,
-    instagram,
-    portfolio,
+    collegeStudioCompanyName,
+    instagramLinkedinProfileLink,
+    whyAttendDepth,
   } = req.body || {};
 
-  // Required fields
-  if (!fullName || !email || !phone) {
+  // Validation
+  if (
+    !fullName ||
+    !email ||
+    !phone ||
+    age === undefined ||
+    age === "" ||
+    !gender ||
+    !creativeField ||
+    !collegeStudioCompanyName ||
+    !instagramLinkedinProfileLink
+  ) {
     return res.status(400).json({
       ok: false,
       message: "Missing required fields",
@@ -36,17 +47,17 @@ module.exports = async (req, res) => {
     // Connect MongoDB
     await connectDB();
 
-    // Save data
+    // Save Details
     const doc = await Details.create({
       fullName,
       email,
       phone,
-      age,
+      age: Number(age),
       gender,
       creativeField,
-      org,
-      instagram,
-      portfolio,
+      collegeStudioCompanyName,
+      instagramLinkedinProfileLink,
+      whyAttendDepth: whyAttendDepth || "",
     });
 
     return res.status(200).json({
@@ -60,13 +71,13 @@ module.exports = async (req, res) => {
     if (err.code === 11000) {
       return res.status(409).json({
         ok: false,
-        message: "Email already registered",
+        message: "This email is already registered",
       });
     }
 
     return res.status(500).json({
       ok: false,
-      message: "Could not save your details",
+      message: err.message || "Could not save your details",
     });
   }
 };

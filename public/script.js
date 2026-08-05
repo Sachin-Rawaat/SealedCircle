@@ -37,7 +37,12 @@ function showRoute(route, { push = true } = {}) {
   });
 
   document.title = TITLES[route] || "SealedCircle";
-  window.scrollTo({ top: 0, behavior: "instant" });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "auto",
+  });
+
   closeMenu();
 
   if (push) {
@@ -84,7 +89,9 @@ function initMenu() {
   }
 
   overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) closeMenu();
+    if (e.target === overlay) {
+      closeMenu();
+    }
   });
 }
 
@@ -102,15 +109,10 @@ function initForms() {
       new FormData(detailsForm).entries()
     );
 
-    payload.age = payload.age || "18";
-    payload.gender = payload.gender || "Prefer not to say";
-    payload.creativeField = payload.creativeField || "Other";
-    payload.collegeStudioCompanyName =
-      payload.collegeStudioCompanyName || "N/A";
-    payload.instagramLinkedinProfileLink =
-      payload.instagramLinkedinProfileLink || "N/A";
-    payload.whyAttendDepth =
-      payload.whyAttendDepth || "";
+    // ===== DEBUG =====
+    console.log("Payload:", payload);
+    alert(JSON.stringify(payload, null, 2));
+    // =================
 
     try {
       const res = await fetch("/api/details", {
@@ -122,6 +124,8 @@ function initForms() {
       });
 
       const data = await res.json();
+
+      console.log("API Response:", data);
 
       if (data.ok) {
         showRoute("tickets");
@@ -138,7 +142,6 @@ function initForms() {
 /* ---------- QR Payment ---------- */
 
 function initQRModal() {
-
   const overlay = document.getElementById("qrOverlay");
   const closeBtn = document.getElementById("qrClose");
 
@@ -152,7 +155,6 @@ function initQRModal() {
   const PAYEE_NAME = "SealedCircle";
 
   function openQR(passName, price) {
-
     passNameEl.textContent = passName;
     amountEl.textContent = "₹" + price;
 
@@ -179,10 +181,7 @@ function initQRModal() {
 
   document.querySelectorAll(".access-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      openQR(
-        btn.dataset.pass,
-        btn.dataset.price
-      );
+      openQR(btn.dataset.pass, btn.dataset.price);
     });
   });
 
@@ -191,14 +190,15 @@ function initQRModal() {
   }
 
   overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) closeQR();
+    if (e.target === overlay) {
+      closeQR();
+    }
   });
 }
 
 /* ---------- Boot ---------- */
 
 document.addEventListener("DOMContentLoaded", () => {
-
   initMenu();
   initForms();
   initQRModal();
@@ -207,5 +207,4 @@ document.addEventListener("DOMContentLoaded", () => {
     routeForPath(location.pathname),
     { push: false }
   );
-
 });
