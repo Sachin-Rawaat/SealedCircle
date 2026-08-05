@@ -109,33 +109,27 @@ function initForms() {
       new FormData(detailsForm).entries()
     );
 
-    // ===== DEBUG =====
-    console.log("Payload:", payload);
-    alert(JSON.stringify(payload, null, 2));
-    // =================
-
     try {
-     const res = await fetch("/api/details", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(payload),
-});
+      const res = await fetch("/api/details", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-const responseText = await res.text();
+      const responseText = await res.text();
 
-console.log("Status:", res.status);
-console.log("Response:", responseText);
+      console.log("Status:", res.status);
+      console.log("Response:", responseText);
 
-alert(
-  "Status: " +
-    res.status +
-    "\n\nResponse:\n" +
-    responseText
-);
+      alert(
+        "Status: " +
+          res.status +
+          "\n\nResponse:\n" +
+          responseText
+      );
 
-return;
     } catch (err) {
       console.error(err);
       alert("Something went wrong.");
