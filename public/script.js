@@ -120,12 +120,11 @@ function initForms() {
 
       const data = await res.json();
 
-if (data.ok) {
-  showRoute("tickets");
-} else {
-  alert(data.message || "Could not save your details.");
-}
-
+      if (data.ok) {
+        showRoute("tickets");
+      } else {
+        alert(data.message || "Could not save your details.");
+      }
     } catch (err) {
       console.error(err);
       alert("Something went wrong.");
@@ -133,7 +132,7 @@ if (data.ok) {
   });
 }
 
-/* ---------- QR Payment ---------- */
+/* ---------- QR Payment (client-side, no server call) ---------- */
 
 function initQRModal() {
   const overlay = document.getElementById("qrOverlay");
@@ -141,7 +140,7 @@ function initQRModal() {
 
   const passNameEl = document.getElementById("qrPassName");
   const amountEl = document.getElementById("qrAmount");
-  const qrImage = document.getElementById("qrCanvas");
+  const canvas = document.getElementById("qrCanvas");
 
   if (!overlay) return;
 
@@ -162,9 +161,13 @@ function initQRModal() {
       "&cu=INR&tn=" +
       encodeURIComponent(passName + " - SealedCircle");
 
-    qrImage.src =
-      "/api/qrcode?text=" +
-      encodeURIComponent(upiUri);
+    if (window.QRCode && canvas) {
+      QRCode.toCanvas(canvas, upiUri, { width: 220, margin: 1 }, (err) => {
+        if (err) console.error("QR generate error:", err);
+      });
+    } else {
+      console.error("QRCode library not loaded — check the CDN <script> tag in index.html");
+    }
 
     overlay.classList.add("open");
   }
