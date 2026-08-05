@@ -8,7 +8,7 @@ const TITLES = {
   home: "SealedCircle",
   tickets: "Choose Your Pass — SealedCircle",
   details: "Your Details — SealedCircle",
-  bookings: " Bookings — SealedCircle",
+  bookings: "Bookings — SealedCircle",
 };
 
 function pathForRoute(route) {
@@ -105,9 +105,12 @@ function initForms() {
     payload.age = payload.age || "18";
     payload.gender = payload.gender || "Prefer not to say";
     payload.creativeField = payload.creativeField || "Other";
-    payload.org = payload.org || "N/A";
-    payload.instagram = payload.instagram || "N/A";
-    payload.portfolio = payload.portfolio || "N/A";
+    payload.collegeStudioCompanyName =
+      payload.collegeStudioCompanyName || "N/A";
+    payload.instagramLinkedinProfileLink =
+      payload.instagramLinkedinProfileLink || "N/A";
+    payload.whyAttendDepth =
+      payload.whyAttendDepth || "";
 
     try {
       const res = await fetch("/api/details", {
@@ -163,11 +166,9 @@ function initQRModal() {
       "&cu=INR&tn=" +
       encodeURIComponent(passName + " - SealedCircle");
 
-    if (qrImage) {
-      qrImage.src =
-        "/api/qrcode?text=" +
-        encodeURIComponent(upiUri);
-    }
+    qrImage.src =
+      "/api/qrcode?text=" +
+      encodeURIComponent(upiUri);
 
     overlay.classList.add("open");
   }
@@ -177,16 +178,12 @@ function initQRModal() {
   }
 
   document.querySelectorAll(".access-btn").forEach((btn) => {
-
     btn.addEventListener("click", () => {
-
       openQR(
         btn.dataset.pass,
         btn.dataset.price
       );
-
     });
-
   });
 
   if (closeBtn) {
