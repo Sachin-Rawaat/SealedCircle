@@ -118,17 +118,13 @@ function initForms() {
         body: JSON.stringify(payload),
       });
 
-      const responseText = await res.text();
+      const data = await res.json();
 
-      console.log("Status:", res.status);
-      console.log("Response:", responseText);
-
-      alert(
-        "Status: " +
-          res.status +
-          "\n\nResponse:\n" +
-          responseText
-      );
+if (data.ok) {
+  showRoute("tickets");
+} else {
+  alert(data.message || "Could not save your details.");
+}
 
     } catch (err) {
       console.error(err);
