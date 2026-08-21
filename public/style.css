@@ -678,7 +678,9 @@ input:focus, select:focus {
 
   .pass-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(2,1fr);
+    max-width: 900px;
+    margin: 0 auto;
     gap:24px;
     align-items:stretch;
   }
